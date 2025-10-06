@@ -108,7 +108,7 @@ const Body = (): JSX.Element => {
                 <div className="shadow p-2 mb-3 rounded">
                   <div className="col-lg-12 align-self-center">
                     <div className="caption header-text text-center">
-                      <h1>NK90Miner</h1>
+                      <h1>BedrockPVP</h1>
                       <h3>sitesine hoşgeldiniz</h3>
                     </div>
                   </div>
