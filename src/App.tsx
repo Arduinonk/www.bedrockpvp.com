@@ -1,11 +1,11 @@
 import { useState, type JSX } from 'react';
 import { Button } from '@mui/material';
 // import banner from './OldHtml/images/bannerrr.jpg';
-import cover from "./OldHtml/images/cover.png";
+// import cover from "./OldHtml/images/cover.png";
 import youtubeLogo from './OldHtml/images/youtube-logo.png'
 import tiktokLogo from './OldHtml/images/tiktok-logo.png'
 import discordLogo from './OldHtml/images/Discord-logo.png'
-import kristallogo0 from './OldHtml/images/Kristal Market0.png'
+// import kristallogo0 from './OldHtml/images/Kristal Market0.png'
 import kristallogo1 from './OldHtml/images/Kristal Market1.png'
 // import minecraftBanner from './OldHtml/images/main_banner.png'
 
@@ -25,13 +25,15 @@ function App(): JSX.Element {
 
   return (
     <>
-      <Header page={page} setPage={setPage} />
+      <Header />
+      {/* <Header page={page} setPage={setPage} /> */}
       <Body page={page} setPage={setPage} />
     </>
   )
 }
 
-const Header = (args: useStadeType): JSX.Element => {
+// const Header = (args: useStadeType): JSX.Element => {
+  const Header =(): JSX.Element => {
   return (
     <>
       {/* <div className="container" style={{ padding: 0 }}>
@@ -88,42 +90,42 @@ const HeaderSocial = (): JSX.Element => {
   )
 };
 
-const HeaderMainPagesButtons = (args: useStadeType): JSX.Element => {
-  return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
-      <div className="container rounded" style={{ backgroundColor: "rgba(218, 218, 218, 1)" }}>
-        <a className="navbar-brand" href="#">
-          <img src={cover} alt="Logo" width="120" height="30" className="d-inline-block align-text-top" />
-        </a>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon" />
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="nav nav-pills" style={{ gap: 10 }}>
-            <li className="nav-item">
-              <Button variant='contained'
-                className="nav-link active "
-                style={{
-                }}
-                onClick={() => args.setPage("mainPage")}
-              > "Ana Sayfa"</Button>
-              {/* <a className="nav-link active" aria-current="page" href="#">Ana Sayfa</a> */}
-            </li>
-            <li className="nav-item">
-              <Button variant='contained' className="nav-link" onClick={() => args.setPage("pluginsPage")}> "Bedrock Modlari"</Button>
-              {/* <a className="nav-link" href="./pages/bedrock_addons.html">Bedrock Modları</a> */}
-            </li>
-            <li className="nav-item">
-              <Button variant='contained' className="nav-link" onClick={() => args.setPage("serverPage")}> "Sunucu"</Button>
-              {/* <a className="nav-link" href="./pages/sunucu.html">Sunucu</a> */}
-            </li>
-          </ul>
-        </div>``
-      </div>
-    </nav>
-  )
-};
+// const HeaderMainPagesButtons = (args: useStadeType): JSX.Element => {
+//   return (
+//     <nav className="navbar navbar-expand-lg bg-body-tertiary">
+//       <div className="container rounded" style={{ backgroundColor: "rgba(218, 218, 218, 1)" }}>
+//         <a className="navbar-brand" href="#">
+//           <img src={cover} alt="Logo" width="120" height="30" className="d-inline-block align-text-top" />
+//         </a>
+//         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+//           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+//           <span className="navbar-toggler-icon" />
+//         </button>
+//         <div className="collapse navbar-collapse" id="navbarNav">
+//           <ul className="nav nav-pills" style={{ gap: 10 }}>
+//             <li className="nav-item">
+//               <Button variant='contained'
+//                 className="nav-link active "
+//                 style={{
+//                 }}
+//                 onClick={() => args.setPage("mainPage")}
+//               > "Ana Sayfa"</Button>
+//               {/* <a className="nav-link active" aria-current="page" href="#">Ana Sayfa</a> */}
+//             </li>
+//             <li className="nav-item">
+//               <Button variant='contained' className="nav-link" onClick={() => args.setPage("pluginsPage")}> "Bedrock Modlari"</Button>
+//               {/* <a className="nav-link" href="./pages/bedrock_addons.html">Bedrock Modları</a> */}
+//             </li>
+//             <li className="nav-item">
+//               <Button variant='contained' className="nav-link" onClick={() => args.setPage("serverPage")}> "Sunucu"</Button>
+//               {/* <a className="nav-link" href="./pages/sunucu.html">Sunucu</a> */}
+//             </li>
+//           </ul>
+//         </div>``
+//       </div>
+//     </nav>
+//   )
+// };
 
 const Body = (args: useStadeType): JSX.Element => {
 
@@ -132,8 +134,10 @@ const Body = (args: useStadeType): JSX.Element => {
       <div>
         <div className="container mt-3">
           <div className="shadow p-5 mb-5 bg-body-tertiary rounded col-lg-12 col-md-12 col-sm-12">
-            {args.page === 'serverPage' && <ServerPage page="serverPage" setPage={args.setPage} />}
-            {args.page === 'mainPage' && <MainPage page="mainPage" setPage={args.setPage} />}
+            {/* {args.page === 'serverPage' && <ServerPage page="serverPage" setPage={args.setPage} />} */}
+            {args.page === 'serverPage' && <ServerPage />}
+            {/* {args.page === 'mainPage' && <MainPage page="mainPage" setPage={args.setPage} />} */}
+            {args.page === 'mainPage' && <MainPage />}
             {args.page === 'pluginsPage' && <PluginsPage page="pluginsPage" setPage={args.setPage} />}
 
           </div>
@@ -186,27 +190,28 @@ function ImageButton() {
     />
   );
 }
-const WebsitePreview = (): JSX.Element => {
-  return (
-    <div style={{ position: "relative", width: "100%", height: "100%" }}>
-      <button
-        style={{
-          position: "absolute",
-          inset: 0,
-          width: "100%",
-          height: "100%",
-          border: "none",
-          borderRadius: "12px",
-          background: "rgba(0,150,255,0.15)",
-          cursor: "pointer",
-        }}
-        onClick={() => window.open("https://example.com", "_blank")}
-      >
-        Kristal markete gir!
-      </button>
-    </div>
-  );
-}
+
+// const WebsitePreview = (): JSX.Element => {
+//   return (
+//     <div style={{ position: "relative", width: "100%", height: "100%" }}>
+//       <button
+//         style={{
+//           position: "absolute",
+//           inset: 0,
+//           width: "100%",
+//           height: "100%",
+//           border: "none",
+//           borderRadius: "12px",
+//           background: "rgba(0,150,255,0.15)",
+//           cursor: "pointer",
+//         }}
+//         onClick={() => window.open("https://example.com", "_blank")}
+//       >
+//         Kristal markete gir!
+//       </button>
+//     </div>
+//   );
+// }
 const Footer = (): JSX.Element => {
   return (
     <div className="card text-center container">
@@ -223,7 +228,8 @@ const Footer = (): JSX.Element => {
     </div>
   )
 };
-const MainPage = (args: useStadeType): JSX.Element => {
+const MainPage = (): JSX.Element => {
+  
   return (
     <div className="row rounded p-2 col-lg-12 col-md-12 col-sm-12 " style={{ backgroundColor: "rgb(255, 255, 255)" }}>
 
@@ -268,7 +274,8 @@ const MainPage = (args: useStadeType): JSX.Element => {
   )
 };
 
-const ServerPage = (args: useStadeType): JSX.Element => {
+// const ServerPage = (args: useStadeType): JSX.Element => {
+  const ServerPage = (): JSX.Element => {
 
   return (
     <div className="row rounded p-2 col-lg-12 col-md-12 col-sm-12 " style={{ backgroundColor: "rgb(255, 255, 255)" }}>
