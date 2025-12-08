@@ -1,5 +1,7 @@
 import { useState, type JSX } from 'react';
 import { Button } from '@mui/material';
+import McFeed from "./McFeed";
+
 // import banner from './OldHtml/images/bannerrr.jpg';
 // import cover from "./OldHtml/images/cover.png";
 import youtubeLogo from './OldHtml/images/youtube-logo.png'
@@ -275,7 +277,7 @@ const MainPage = (): JSX.Element => {
 };
 
 // const ServerPage = (args: useStadeType): JSX.Element => {
-  const ServerPage = (): JSX.Element => {
+ const ServerPage = (): JSX.Element => {
 
   return (
     <div className="row rounded p-2 col-lg-12 col-md-12 col-sm-12 " style={{ backgroundColor: "rgb(255, 255, 255)" }}>
@@ -285,12 +287,18 @@ const MainPage = (): JSX.Element => {
         <div className="shadow p-2 mb-2 rounded ">
           <p style={{ color: "purple" }}>Server</p>
         </div >
-        <div className="shadow p-2 mb-5 rounded row  " style={{ gap: "10px" }}>
-          {/* <Button style={{ background: "#234521" }} variant='contained' onClick={() => args.setPage("mainPage")}> "Main"</Button>
-          <Button style={{ background: "#234521" }} variant='contained' onClick={() => args.setPage("pluginsPage")}> "Minecraft Bedrock Modları, Pluginleri ve daha fazlası..."</Button> */}
+        <div className="shadow p-2 mb-5 rounded row" style={{ gap: "10px" }}>
+          {/* Здесь можно добавить кнопки/фильтры если нужно */}
         </div>
 
+        {/* <-- Вставляем McFeed сюда: */}
+        <div className="shadow p-2 mb-5 rounded">
+          <McFeed />
+        </div>
+        {/* --> */}
+
       </div>
+
       <div className="col-lg-4 col-md-4">
         <div className="shadow p-2 mb-5 rounded ratio ratio-16x9">
           <iframe className="rounded" src="https://www.youtube.com/embed/tkgIB-w4XRw?si=g0bg0IIP6dhnTwlN"
@@ -298,22 +306,12 @@ const MainPage = (): JSX.Element => {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
         </div>
-        {/* <div className="shadow p-2 mb-5 rounded">
-                  <a className="text-decoration-none"
-                    href="https://drive.google.com/file/d/13aj-AZzmJ2aEb_Gvz6xkiKQemM3ewvps/view?usp=sharing"
-                    target="_blank" rel="noopener noreferrer">
-                    <img src={minecraftBanner} alt="MinecraftBedrock Final Sürümü!" width="95%"
-                      style={{ alignSelf: "auto", width: "100%" }} className="rounded" />
-                    <p
-                      style={{ textAlign: "center", fontWeight: 1000, fontSize: "16px", color: "rgba(248, 18, 10, 0.863)", lineHeight: 1.1 }}>
-                      Minecraft 1.21.70.03 Final Sürüm(APK)</p>
-                  </a>
-                </div> */}
       </div>
 
     </div>
   )
 };
+
 
 const PluginsPage = (args: useStadeType): JSX.Element => {
 
