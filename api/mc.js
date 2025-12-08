@@ -15,7 +15,7 @@ export default async function handler(req, res) {
   }
 
   // просто логируем (vercel покажет в логах)
-  console.log("MC payload received:", payload);
+  console.log("MC received:", payload);
 
   return res.status(200).json({ ok: true });
 }
