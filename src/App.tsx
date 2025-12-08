@@ -92,42 +92,42 @@ const HeaderSocial = (): JSX.Element => {
   )
 };
 
-// const HeaderMainPagesButtons = (args: useStadeType): JSX.Element => {
-//   return (
-//     <nav className="navbar navbar-expand-lg bg-body-tertiary">
-//       <div className="container rounded" style={{ backgroundColor: "rgba(218, 218, 218, 1)" }}>
-//         <a className="navbar-brand" href="#">
-//           <img src={cover} alt="Logo" width="120" height="30" className="d-inline-block align-text-top" />
-//         </a>
-//         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-//           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-//           <span className="navbar-toggler-icon" />
-//         </button>
-//         <div className="collapse navbar-collapse" id="navbarNav">
-//           <ul className="nav nav-pills" style={{ gap: 10 }}>
-//             <li className="nav-item">
-//               <Button variant='contained'
-//                 className="nav-link active "
-//                 style={{
-//                 }}
-//                 onClick={() => args.setPage("mainPage")}
-//               > "Ana Sayfa"</Button>
-//               {/* <a className="nav-link active" aria-current="page" href="#">Ana Sayfa</a> */}
-//             </li>
-//             <li className="nav-item">
-//               <Button variant='contained' className="nav-link" onClick={() => args.setPage("pluginsPage")}> "Bedrock Modlari"</Button>
-//               {/* <a className="nav-link" href="./pages/bedrock_addons.html">Bedrock Modları</a> */}
-//             </li>
-//             <li className="nav-item">
-//               <Button variant='contained' className="nav-link" onClick={() => args.setPage("serverPage")}> "Sunucu"</Button>
-//               {/* <a className="nav-link" href="./pages/sunucu.html">Sunucu</a> */}
-//             </li>
-//           </ul>
-//         </div>``
-//       </div>
-//     </nav>
-//   )
-// };
+ const HeaderMainPagesButtons = (args: useStadeType): JSX.Element => {
+  return (
+    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <div className="container rounded" style={{ backgroundColor: "rgba(218, 218, 218, 1)" }}>
+         <a className="navbar-brand" href="#">
+           <img src={cover} alt="Logo" width="120" height="30" className="d-inline-block align-text-top" />
+         </a>
+         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+           <span className="navbar-toggler-icon" />
+         </button>
+         <div className="collapse navbar-collapse" id="navbarNav">
+           <ul className="nav nav-pills" style={{ gap: 10 }}>
+             <li className="nav-item">
+               <Button variant='contained'
+                 className="nav-link active "
+                 style={{
+                 }}
+                 onClick={() => args.setPage("mainPage")}
+               > "Ana Sayfa"</Button>
+               {/* <a className="nav-link active" aria-current="page" href="#">Ana Sayfa</a> */}
+             </li>
+             <li className="nav-item">
+               <Button variant='contained' className="nav-link" onClick={() => args.setPage("pluginsPage")}> "Bedrock Modlari"</Button>
+               {/* <a className="nav-link" href="./pages/bedrock_addons.html">Bedrock Modları</a> */}
+             </li>
+             <li className="nav-item">
+               <Button variant='contained' className="nav-link" onClick={() => args.setPage("serverPage")}> "Sunucu"</Button>
+               {/* <a className="nav-link" href="./pages/sunucu.html">Sunucu</a> */}
+             </li>
+           </ul>
+         </div>``
+       </div>
+     </nav>
+   )
+ };
 
 const Body = (args: useStadeType): JSX.Element => {
 
