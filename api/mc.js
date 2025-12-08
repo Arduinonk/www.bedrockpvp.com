@@ -1,7 +1,7 @@
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
-    return res.status(405).send("Method Not Allowed");
+    return res.status(405).send("Method NOT Allowed");
   }
 
   const key = req.headers["x-api-key"];
