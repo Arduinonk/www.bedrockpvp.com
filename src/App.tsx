@@ -245,8 +245,8 @@ const MainPage = (): JSX.Element => {
           <p style={{ color: "purple" }}> </p>
           <p style={{ color: "purple" }}> </p>
           <p style={{ color: "purple", fontSize: 50 }}>Site Tasarım aşamasında!</p>
-          {/* <Button style={{ background: "#234521" }} variant='contained' onClick={() => args.setPage("serverPage")}> "BedrockPvP.com sunucu sayfası"</Button> */}
-          {/* <Button style={{ background: "#234521" }} variant='contained' onClick={() => args.setPage("pluginsPage")}> "Minecraft Bedrock Modları, Pluginleri ve daha fazlası..."</Button> */}
+          { <Button style={{ background: "#234521" }} variant='contained' onClick={() => args.setPage("serverPage")}> "BedrockPvP.com sunucu sayfası"</Button> }
+          { <Button style={{ background: "#234521" }} variant='contained' onClick={() => args.setPage("pluginsPage")}> "Minecraft Bedrock Modları, Pluginleri ve daha fazlası..."</Button> }
         </div>
 
       </div>
