@@ -2,7 +2,7 @@
 import { MongoClient } from "mongodb";
 
 const uri = process.env.MONGODB_URI;
-const dbName = process.env.DB_NAME || "bedrockpvp5data";
+const dbName = process.env.DB_NAME || "bedrockpvp5";
 const collName = process.env.COLLECTION || "data";
 
 // для re-use соединения между вызовами (важно для serverless)
