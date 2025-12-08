@@ -1,5 +1,5 @@
 // src/McFeed.tsx
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 
 type McItem = {
   _id?: string;
