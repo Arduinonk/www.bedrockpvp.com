@@ -2,8 +2,8 @@
 import { MongoClient } from "mongodb";
 
 const uri = process.env.MONGODB_URI;
-const dbName = process.env.DB_NAME || "bedrock";
-const collName = process.env.COLLECTION || "mc_logs";
+const dbName = process.env.DB_NAME || "bedrockpvp5data";
+const collName = process.env.COLLECTION || "data";
 
 // для re-use соединения между вызовами (важно для serverless)
 let cachedClient = global._mongoClient;
