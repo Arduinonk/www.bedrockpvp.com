@@ -4,7 +4,6 @@ export default async function handler(req, res) {
     return res.status(405).send("Method Not Allowed");
   }
 
-  // простой API ключ для защиты
   const key = req.headers["x-api-key"];
   if (key !== process.env.MC_API_KEY) {
     return res.status(403).json({ error: "Forbidden" });
