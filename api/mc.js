@@ -42,7 +42,9 @@ export default async function handler(req, res) {
       // UPDATE exact document
       await collection.updateOne(
         { type: "pixelData" }, // filter
-        data,
+        {
+          $set: data
+        },
         { upsert: true } // create if not exists
       );
     } else {
