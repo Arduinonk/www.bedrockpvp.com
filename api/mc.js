@@ -48,7 +48,6 @@ async function connectToDatabase() {
 
 function checkApiKey(req) {
   // Если вы хотите требовать ключ обязательно, замените на: return req.headers['x-api-key'] === MC_API_KEY;
-  if (!MC_API_KEY) return true; // разрешаем, если ключ не задан (на dev)
   const key = req.headers["x-api-key"];
   return key === MC_API_KEY;
 }
