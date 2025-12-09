@@ -112,7 +112,7 @@ export function transformPixelData(pixelData) {
   if (!Array.isArray(pixelData) || pixelData.length === 0) return pixelData;
 
   // 1) Reverse rows (first step)
-  const reversed = [...pixelData].reverse();
+  const reversed = [...pixelData];
 
   // 2) Rotate +90 degrees
   const h = reversed.length;
