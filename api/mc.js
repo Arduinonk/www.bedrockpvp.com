@@ -73,14 +73,29 @@ export default async function handler(req, res) {
       if (!type) {
         return res.status(400).json({ error: "Missing or invalid 'type' field (string required)" });
       }
-
       // Приводим receivedAt к дате
       const receivedAt = body.receivedAt ? new Date(body.receivedAt) : new Date();
 
-      // Если хотите заменять весь документ:
-      const docToSave = { ...body, type, receivedAt };
+      // Если type === 'pixelData', перевернуть массив перед сохранением
+      let processedBody = { ...body };
 
-      const result = await coll.replaceOne({ type }, docToSave, { upsert: true });
+      if (type === "pixelData" && Array.isArray(body.pixelData)) {
+        try {
+          processedBody.pixelData = fixPixelDataOrientation(body.pixelData);
+        } catch (err) {
+          console.error("Ошибка обработки pixelData:", err);
+        }
+      }
+
+      // Формируем документ для сохранения
+      const docToSave = { ...processedBody, type, receivedAt };
+
+      // Сохраняем / обновляем
+      const result = await coll.replaceOne(
+        { type },
+        docToSave,
+        { upsert: true }
+      );
 
       return res.status(200).json({
         ok: true,
@@ -288,3 +303,30 @@ export default async function handler(req, res) {
 //     return res.status(500).json({ error: "Internal Server Error", message: err.message });
 //   }
 // }
+
+// helper: поворачивает/ориентирует двумерный массив пикселей
+function fixPixelDataOrientation(pixelData) {
+  if (!Array.isArray(pixelData) || pixelData.length === 0) return pixelData;
+
+  const h = pixelData.length;
+  const w = Array.isArray(pixelData[0]) ? pixelData[0].length : 0;
+  if (w === 0) return pixelData;
+
+  // создаём выходной массив w x h, инициализированный нулями (или undefined — по вкусу)
+  const out = Array.from({ length: w }, () => new Array(h));
+
+  for (let y = 0; y < h; y++) {
+    const row = pixelData[y] || [];
+    for (let x = 0; x < w; x++) {
+      // безопасно читаем значение (если pixelData[y][x] отсутствует, оставляем undefined)
+      out[x][h - 1 - y] = row[x];
+    }
+  }
+
+  // если нужно — развернуть каждую строку (как в вашем оригинале)
+  for (let i = 0; i < out.length; i++) {
+    if (Array.isArray(out[i])) out[i].reverse();
+  }
+
+  return out;
+}
