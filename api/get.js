@@ -37,7 +37,7 @@ async function connectToDatabase() {
  * Note: in-memory limiter works for single process. If you run multiple instances,
  * consider Redis or another shared store for global limiting.
  */
-const COOLDOWN_MS = 1000; // 1 second cooldown
+const COOLDOWN_MS = 2000; // 1 second cooldown
 const ipMap = new Map();
 
 // Cleanup entries older than CLEANUP_AGE to avoid memory growth
@@ -102,7 +102,7 @@ export default async function handler(req, res) {
     res.setHeader("Content-Type", "application/json");
     // Optional: avoid aggressive caching by proxies/browsers
     res.setHeader("Cache-Control", "no-store"); // change if you'd like caching
-    return res.status(200).json(doc);
+    return res.status(200).json(doc); // typeof doc ==  
   } catch (err) {
     console.error("api.get error:", err);
     return res.status(500).json({ error: "Internal Server Error", message: err.message });

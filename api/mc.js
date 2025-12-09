@@ -73,7 +73,8 @@ export default async function handler(req, res) {
       if (!type) {
         return res.status(400).json({ error: "Missing or invalid 'type' field (string required)" });
       }
-
+      if (type === 'pixelData')
+        body.data = transformPixelData(body.data)
       // Приводим receivedAt к дате
       const receivedAt = body.receivedAt ? new Date(body.receivedAt) : new Date();
 
@@ -107,6 +108,26 @@ export default async function handler(req, res) {
   }
 }
 
+export function transformPixelData(pixelData) {
+  if (!Array.isArray(pixelData) || pixelData.length === 0) return pixelData;
+
+  // 1) Reverse rows (first step)
+  const reversed = [...pixelData].reverse();
+
+  // 2) Rotate +90 degrees
+  const h = reversed.length;
+  const w = reversed[0].length;
+
+  const out = Array.from({ length: w }, () => new Array(h));
+
+  for (let y = 0; y < h; y++) {
+    for (let x = 0; x < w; x++) {
+      out[x][y] = reversed[y][x];
+    }
+  }
+
+  return out;
+}
 
 // // // api/mc.js
 // // import { MongoClient } from "mongodb";
