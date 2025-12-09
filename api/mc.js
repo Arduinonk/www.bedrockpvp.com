@@ -38,20 +38,29 @@ export default async function handler(req, res) {
     if (!data) {
       return res.status(400).json({ error: "Missing body" });
     }
+    if (data.type === 'pixelData') {
+      // UPDATE exact document
+      await collection.updateOne(
+        { type: "pixelData" }, // filter
+        data,
+        { upsert: true } // create if not exists
+      );
+    } else {
 
-    // UPDATE exact document
-    await collection.updateOne(
-      { type: "onlineCountData" }, // filter
-      {
-        $set: {
-          onlineCount: data.onlineCount,
-          players: data.players,
-          receivedAt: new Date()
-        }
-      },
-      { upsert: true } // create if not exists
-    );
 
+      // UPDATE exact document
+      await collection.updateOne(
+        { type: "onlineCountData" }, // filter
+        {
+          $set: {
+            onlineCount: data.onlineCount,
+            players: data.players,
+            receivedAt: new Date()
+          }
+        },
+        { upsert: true } // create if not exists
+      );
+    }
     return res.status(200).json({ ok: true });
   }
 
